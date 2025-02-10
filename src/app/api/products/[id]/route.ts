@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server"
+import { NextRequest } from "next/server"
 import { products } from "@/data/product-data";
 
 type Params = {
@@ -12,7 +12,7 @@ export async function GET(request: NextRequest, { params }: {params: Params}) {
     if(!product){
         return new Response(null, {status: 204})
     }
-    
+
     return new Response(JSON.stringify(product), {
         status: 200,
         headers: {
