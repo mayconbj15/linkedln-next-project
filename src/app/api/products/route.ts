@@ -1,6 +1,10 @@
-import { products } from "@/data/product-data";
+import { connectToDb } from "@/app/api/db";
+
 
 export async function GET() {
+    const { db } = await connectToDb()
+    const products = await db.collection('products').find({}).toArray()
+    
     return new Response(JSON.stringify(products), {
         status:200, 
         headers: {
