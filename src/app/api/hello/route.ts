@@ -1,6 +1,9 @@
 export async function GET() {
-    return new Response('Hello froma Next.js route handler!', {
-        status: 200
+    return new Response(JSON.stringify({message: 'Hello froma Next.js route handler!'}), {
+        status: 200, 
+        headers: {
+            'Content-Type': 'application/json'
+    }
     })
 }
 
